@@ -19,6 +19,9 @@
    <title>CGIP Registration Form</title>
    <link href="cg_base.css" rel="stylesheet" />
    <link href="cg_styles.css" rel="stylesheet" />
+   <link href="cg_forms.css" rel="stylesheet">
+   <link href="cg_validate.css" rel="stylesheet">
+   <script url="cg_script.js"></script>
 </head>
 
 <body>
@@ -50,7 +53,46 @@
    <section>
       <h1>Conference Registration Form</h1>
       <p>Required Item (*)</p>
-      
+      <form action="http://www.example.comcg/register" method="post">
+         <div>
+            <label for="titleBox">Title</label>
+            <input name="title" id="titleBox" type="text" list="titleList">
+            <datalist id="titleList">
+               <option value="Mr."></option>
+               <option value="Mrs."></option>
+               <option value="Ms."></option>
+               <option value="Prof."></option>
+               <option value="Dr."></option>
+               <option value="Assit. Prof."></option>
+               <option value="Assoc. Prof."></option>
+            </datalist>
+         </div>
+         <label for="fnBox">First Name*</label>
+         <input required name="firstName" id="fnBox" type="text">
+         <label for="lnBox">Last Name*</label>
+         <input required name="lastName" id="lnBox" type="text">
+         <label for="addBox">Address*</label>
+         <input name="address" id="addBox" type="text" placeholder="Enter E-mail Here!">
+         <label for="groupBox">Company or University</label>
+         <input name="group" id="groupBox" type="text">
+         <label for="mailBox">Email*</label>
+         <input required name="email" id="mailBox" type="mail">
+         <label for="phoneBox">Phone Number*</label>
+         <input required name="phoneNumber" id="phoneBox" type="tel" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
+          placeholder="(nnn) nnn nnnn">
+         <label for="idBox">ACGIP Membership</label>
+         <input name="acgipID" id="idBox" type="text" placeholder="acgip-nnnnnn Number">
+         <label for="regList">Registartion Category</label>
+         <input id="regList" name="registerType" type="text" list="regList">
+         <datalist id="regList">
+            <option value="member">ACGIP Member ($695)</option>
+            <option value="nonmember">Non-Member ($795)</option>
+            <option value="student">Student ($310)</option>
+            <option  value="poster">Poster ($95)</option>
+            <option value="guest">Guest ($35)</option>
+         </datalist>
+         <p><input type="submit" value="Continue"></p>
+      </form>
    </section>
    
    <aside>
